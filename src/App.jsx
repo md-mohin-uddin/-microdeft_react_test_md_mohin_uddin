@@ -12,9 +12,7 @@ function App() {
   return (
     <>
       <h2 className="text-center text-3xl">React Task</h2>
-      {/* <Navbar></Navbar> */}
-      <Register></Register>
-      <Login></Login>
+      <Navbar></Navbar>
     </>
   );
 }

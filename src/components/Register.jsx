@@ -1,25 +1,5 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import auth from "../firebase/firebase.config";
+import React from "react";
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  const name = e.target.name.value;
-  const email = e.target.email.value;
-  const password = e.target.password.value;
-  console.log(name, email, password);
-  // reset error
-  setRegisterError("");
-  // reset success
-  setSuccess("");
-
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((result) => {
-      console.log(result.user);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-};
 const Register = () => {
   return (
     <div>
@@ -29,7 +9,7 @@ const Register = () => {
             <h1 className="text-5xl font-bold">Register now!</h1>
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleSubmit} className="card-body">
+            <form className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -66,7 +46,11 @@ const Register = () => {
                 />
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
-                    already have account? please Login
+                    already have account? please{" "}
+                    <span className="btn btn-ghost" to="/login">
+                      {" "}
+                      Login
+                    </span>
                   </a>
                 </label>
               </div>
